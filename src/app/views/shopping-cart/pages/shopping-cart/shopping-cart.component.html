@@ -1,0 +1,30 @@
+<ng-container *ngIf="(prods$|async) as products">
+  <section *ngIf="products.length; else emptyCard">
+    <div class="header">
+      <h1>Total: {{totalPrice$|async|currency}} USD</h1>
+    </div>
+    <section>
+      <app-list-container>
+        <app-product-card *ngFor="let item of products; trackBy:trackBy"
+                          [product]="item.product">
+          <ng-container>
+            <mat-icon class="menu-item" mat-ripple (click)="increaseItem(item)">add</mat-icon>
+            <span class="menu-item number">{{item.numberOfProducts}}</span>
+            <mat-icon class="menu-item" mat-ripple (click)="reduceItem(item)">remove</mat-icon>
+            <mat-icon class="menu-item remove" mat-ripple (click)="removeItem(item)">remove_shopping_cart</mat-icon>
+          </ng-container>
+        </app-product-card>
+      </app-list-container>
+    </section>
+  </section>
+</ng-container>
+
+<ng-template #emptyCard>
+  <section class="empty-cart-container">
+    <h1>
+      Cart Is Empty
+      <mat-icon color="primary">remove_shopping_cart</mat-icon>
+    </h1>
+    <button mat-raised-button color="primary" routerLink="">GO HOME</button>
+  </section>
+</ng-template>

@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="header-post d-flex justify-content-center align-center">
+    <img [src]="product.image" class="card-image">
+  </div>
+
+  <div class="body-post">
+    <div class="post-content">
+
+      <h1 class="title">
+        {{product.title|truncate:[50]}}
+      </h1>
+      <p>
+        {{product.description|truncate:[150]}}
+      </p>
+
+      <div class="container-info">
+        <section class="mid-section">
+          <div class="price-section">
+            <span>Price</span>
+            <span class="price">{{product.price}} USD</span>
+          </div>
+          <div class="price-section">
+            <span>Category</span>
+            <span class="price">{{product.category}}</span>
+          </div>
+        </section>
+
+        <section class="container-tags">
+            <ng-content></ng-content>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+

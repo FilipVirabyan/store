@@ -1,0 +1,11 @@
+<mat-toolbar color="primary" >
+  <span class="cursor-pointer" routerLink="">Store</span>
+  <span class="spacer"></span>
+  <mat-icon [matBadge]="cartItemsCount"
+            matBadgeColor="warn"
+            [matBadgeHidden]="!cartItemsCount"
+            class="cursor-pointer"
+            routerLink="cart">
+    shopping_cart
+  </mat-icon>
+</mat-toolbar>

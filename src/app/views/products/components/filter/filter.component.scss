@@ -1,0 +1,57 @@
+.filters-container{
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .accept-btn{
+    margin: 20px;
+  }
+
+  ol {
+    list-style: none;
+  }
+
+  .categories {
+    text-align: center;
+    margin-top: 0;
+    padding: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+
+    li {
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      min-width: 50px;
+      line-height: normal;
+      cursor: pointer;
+      transition: all 0.1s;
+      font-weight: normal;
+      margin: 2px 10px;
+      border: 2px solid #E3E3E3;
+    }
+
+    li:hover, .active {
+      background: indigo;
+      color: white;
+    }
+  }
+
+  .price-slider{
+    width: 80%;
+  }
+
+  .close-icon {
+    display: none;
+    position: absolute;
+    top: 10px; /* Adjust the top distance as needed */
+    right: 10px; /* Adjust the right distance as needed */
+    cursor: pointer;
+  }
+
+  @media (max-width: 600px) {
+    .close-icon{
+      display: block;
+    }
+  }
+}

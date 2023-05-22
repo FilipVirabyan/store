@@ -1,0 +1,26 @@
+<main *ngIf="!(isLoading$|async);else spinner">
+  <mat-icon class="filter-icon cursor-pointer"
+            (click)="filterOpened=true">filter_alt</mat-icon>
+    <aside [class.opened-filter]="filterOpened">
+      <app-filter (filterEmitter)="filterProducts($event)"
+                  (closeFilter)="filterOpened=false"
+                  [filters]="filters$|async"
+                  [categories]="categories$|async">
+      </app-filter>
+    </aside>
+    <section class="list-container">
+      <app-list-container>
+        <app-product-card *ngFor="let item of prods$|async; trackBy:trackBy"
+                          [product]="item">
+          <mat-icon class="menu-item add"
+                    mat-ripple
+                    (click)="addToCart(item)">
+            shopping_cart
+          </mat-icon>
+        </app-product-card>
+      </app-list-container>
+    </section>
+</main>
+<ng-template #spinner>
+    <app-spinner></app-spinner>
+</ng-template>
